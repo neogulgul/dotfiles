@@ -1,0 +1,124 @@
+/* i know that this is far from pretty */
+
+@import url('https://nyri4.github.io/Comfy-spicetify/app.css');
+
+@font-face {
+    font-family: "Jetbrains Mono";
+    src: url(fonts/JetBrainsMono-Medium.ttf);
+}
+
+* {
+    font-family: "Jetbrains Mono";
+}
+
+button.main-playPauseButton-button {
+    border-radius: 50%;
+}
+
+.main-home-homeHeader {
+    display: none;
+}
+
+:root {
+    --spice-button: #caa9fa;
+}
+
+/* progress bar */
+
+:root .Root__now-playing-bar .playback-bar > div:first-of-type {
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+}
+
+:root .Root__now-playing-bar .playback-bar > div:last-of-type {
+    position: absolute;
+    bottom: -12px;
+    right: 0;
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -10px;
+}
+
+:root .Root__now-playing-bar .playback-bar .playback-progressbar > div > div {
+    width: calc(100% - 2 * (40px + 12px));
+    position: relative;
+    border: 1px solid var(--spice-button);
+}
+
+:root .Root__now-playing-bar .playback-bar .playback-progressbar > div > div > div > div {
+    width: 100%;
+    height: calc(100% - 2px);
+    background-image: none;
+    background-color: var(--spice-button);
+    opacity: 0.5;
+}
+
+.volume-bar .progress-bar {
+    top: 0;
+}
+
+/* ---------- */
+
+.os-scrollbar-handle {
+    border-radius: 50px;
+}
+
+:root .Root__top-bar header .main-userWidget-box .main-avatar-avatar .main-avatar-image {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.cRcbfCF3jsPg0TEpeWb9 {
+    border-radius: 50px;
+    border: 2px solid var(--spice-tab-active);
+}
+
+:root button, :root input, :root img {
+    border-radius: none;
+}
+
+.main-entityHeader-image {
+    border-radius: 5px;
+}
+
+.main-topBar-background {
+    display: none;
+}
+
+:root .Root__top-bar header .main-topBar-historyButtons button, :root .Root__top-bar header .lyrics-tabBar-active {
+    background-color: var(--spice-button);
+}
+
+:root .Root__top-bar header .main-userWidget-box .main-avatar-avatar > div {
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.main-trackList-rowSectionVariable>:not(:last-child), [dir=ltr] .main-trackList-rowSectionEnd>:not(:last-child), [dir=ltr] .main-trackList-rowSectionStart>:not(:last-child):hover {
+    opacity: 0.6;
+}
+
+.main-home-home::after {
+    content: "(っ◔◡◔)っ";
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    color: var(--spice-button);
+}
+
+.main-home-content section {
+    display: none;
+}
+
+/* hides podcasts */
+._ef8TD60opVEITog7_gB li:nth-child(2), div[class="GlueDropTarget GlueDropTarget--episodes personal-library"], section[aria-label="Podcasts"], section[aria-label="Episodes"] {
+    display: none;
+}

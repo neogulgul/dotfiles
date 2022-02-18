@@ -1,0 +1,2 @@
+@Print
+    maim -u ~/Pictures/screenshots/$(date +%s).png
