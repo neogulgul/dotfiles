@@ -3,7 +3,7 @@
 ![rice](screenshots/rice.png?raw=true)
 
 # spotify
-this is what i used for spotify:
+this is what i use for spotify:
 
 https://spicetify.app/
 
