@@ -1,6 +1,6 @@
 # dotfiles
 
-!(https://github.com/neogulgul/dotfiles/blob/main/screenshots/rice.png?raw=true)
+![](https://github.com/neogulgul/dotfiles/blob/main/screenshots/rice.png?raw=true)
 
 this is what i used for spotify:
 
