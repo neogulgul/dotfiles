@@ -1,6 +1,6 @@
 # dotfiles
 
-![rice](screenshots/rice.png)
+![rice](screenshots/rice.png?raw=true)
 
 this is what i used for spotify:
 
