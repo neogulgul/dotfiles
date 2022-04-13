@@ -49,9 +49,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 setxkbmap -layout se
-xrandr --rate 144
+xrandr --output DP-0 --mode 1920x1080 --rate 144
 xset m 0 0
 sxhkd &
-picom &
+picom --experimental-backends &
 nitrogen --restore &
 exec i3
