@@ -1,49 +1,42 @@
 cursor:
-    style: Block
+  style: Block
 
 window:
-    padding:
-        x: 0
-        y: 0
-
-schemes:
-    dracula: &dracula
-        primary:
-            background: '#282a36'
-            foreground: '#f8f8f2'
-
-        normal:
-            black:   '#21222c'
-            red:     '#ff5555'
-            green:   '#50fa7b'
-            yellow:  '#f1fa8c'
-            blue:    '#caa9fa'
-            magenta: '#ff79c6'
-            cyan:    '#8be9fd'
-            white:   '#f8f8f2'
-
-        bright:
-            black:   '#6272a4'
-            red:     '#ff6e6e'
-            green:   '#69ff94'
-            yellow:  '#ffffa5'
-            blue:    '#d6acff'
-            magenta: '#ff92df'
-            cyan:    '#a4ffff'
-            white:   '#ffffff'
-
-colors: *dracula
+  padding:
+    x: 10
+    y: 10
 
 font:
-    normal:
-        family: JetBrainsMono Nerd Font
-        style: Medium
+  normal:
+    family: JetBrainsMono Nerd Font
+    style: Medium
 
-    size: 10
+  size: 10
 
-    offset:
-        x: 0
-        y: 0
+colors:
+  primary:
+    background: "#282c34"
+    foreground: "#ffffff"
+  
+  normal:
+    black:    "#000000"
+    red:      "#cd3131"
+    green:    "#0dbc79"
+    yellow:   "#e5e510"
+    blue:     "#2472c8"
+    magenta:  "#bc3fbc"
+    cyan:     "#11a8cd"
+    white:    "#e5e5e5"
+
+  bright:
+    black:    "#21252b"
+    red:      "#f14c4c"
+    green:    "#23d18b"
+    yellow:   "#f5f543"
+    blue:     "#3b8eea"
+    magenta:  "#d670d6"
+    cyan:     "#29b8db"
+    white:    "#ffffff"
 
 scrolling:
   history: 10000

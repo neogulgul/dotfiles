@@ -1,104 +1,132 @@
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;==========================================================
-
-
+;-----------------------------------;
+; colors							;
+;-----------------------------------;
 
 [colors]
-background = #90282a36
-background-alt = #caa9fa
-foreground = #f8f8f2
-foreground-alt = #90282a36
-alert = #ff5555
 
+	transparent = #00000000
+	background 	= #282c34
+	foreground 	= #ffffff
+	main 		= #2472c8
+	alert 		= #cd3131
 
+	r0			= #655c6f
+	r1 			= #be616b
+	r2 			= #d79479
+	r3 			= #d5b196
+	r4 			= #e1d5bb
+
+[modules]
+
+	padding = 2
+
+;-----------------------------------;
+; bar								;
+;-----------------------------------;
 
 [bar/polybar]
-width = 100%
-height = 32
-radius = 16
-border-size = 10
-border-bottom = 0
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+	width 			= 100%
+	height 			= 32
+	border-size 	= 10
+	border-bottom 	= 0
 
-font-0 = "JetBrains Mono:size=10;3"
-font-1 = "JetBrainsMono Nerd Font:size=14;4"
+	background = ${colors.transparent}
+	foreground = ${colors.foreground}
 
-modules-left = i3
-modules-center = time
-modules-right = pulseaudio memory cpu date
+	font-0 = "JetBrainsMono Nerd Font:size=10;3"
 
-padding-right = 5
-module-margin-right = 5
+	modules-left 	= i3
+	modules-center 	= time
+	modules-right 	= volume cpu memory date
 
-cursor-click = pointer
-cursor-scroll = ns-resize
+	line-size = 3
 
+	module-margin-right = 1
 
+	cursor-click = pointer
+
+;-----------------------------------;
+; modules							;
+;-----------------------------------;
 
 [module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
 
-padding = 3
+	type = internal/i3
 
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-foreground = ${colors.foreground-alt}
-label-focused-padding = ${self.padding}
+	label = %index%
 
-label-unfocused = %index%
-label-unfocused-padding = ${self.padding}
+	label-focused 				= ${self.label}
+	label-focused-padding 		= ${modules.padding}
+	label-focused-background 	= ${colors.background}
+	label-focused-underline 	= ${colors.main}
 
-label-urgent = %index%
-label-urgent-background = ${colors.alert}
-label-urgent-padding = ${self.padding}
+	label-unfocused 			= ${self.label}
+	label-unfocused-padding 	= ${modules.padding}
+	label-unfocused-background 	= ${colors.background}
 
-
-
-[module/date]
-type = internal/date
-format-prefix = "  "
-date = "%a, %b %d %Y"
-
-
+	label-urgent 				= ${self.label}
+	label-urgent-padding 		= ${modules.padding}
+	label-urgent-background 	= ${colors.background}
+	label-urgetn-underline		= ${colors.alert}
 
 [module/time]
-type = internal/date
-format-prefix = "  "
-date = "%H:%M:%S"
 
+	type = internal/date
 
+	format-prefix 				= ""
+	format-prefix-padding 		= ${modules.padding}
+	format-prefix-background 	= ${colors.r0}
+	date 						= "%H:%M:%S"
+	label-padding 				= ${modules.padding}
+	label-background 			= ${colors.background}
 
-[module/memory]
-type = internal/memory
-format-prefix = "塞  "
+[module/volume]
 
+	type = internal/pulseaudio
+	use-ui-max = false
 
+	format-volume-prefix 			= "墳"
+	format-volume-prefix-padding 	= ${modules.padding}
+	format-volume-prefix-background = ${colors.r1}
+	label-volume 					= "%percentage%%"
+	label-volume-padding 			= ${modules.padding}
+	label-volume-background 		= ${colors.background}
+
+	format-muted-prefix 			= "婢"
+	format-muted-prefix-padding 	= ${modules.padding}
+	format-muted-prefix-background 	= ${colors.r1}
+	label-muted 					= "muted"
+	label-muted-padding 			= ${modules.padding}
+	label-muted-background 			= ${colors.background}
 
 [module/cpu]
-type = internal/cpu
-format-prefix = "  "
 
+	type = internal/cpu
 
+	format-prefix 				= ""
+	format-prefix-padding 		= ${modules.padding}
+	format-prefix-background 	= ${colors.r2}
+	label-padding 				= ${modules.padding}
+	label-background 			= ${colors.background}
 
-[module/pulseaudio]
-type = internal/pulseaudio
-use-ui-max = false
+[module/memory]
 
-format-volume = <label-volume>
-label-volume = "墳  %percentage%%"
+	type = internal/memory
 
-label-muted = "婢  ..."
-label-muted-foreground = ${colors.foreground-alt}
+	format-prefix 				= "塞"
+	format-prefix-padding 		= ${modules.padding}
+	format-prefix-background 	= ${colors.r3}
+	label-padding 				= ${modules.padding}
+	label-background 			= ${colors.background}
+
+[module/date]
+
+	type = internal/date
+
+	format-prefix 				= ""
+	format-prefix-padding 		= ${modules.padding}
+	format-prefix-background 	= ${colors.r4}
+	date 						= "%a, %b %d %Y"
+	label-padding 				= ${modules.padding}
+	label-background 			= ${colors.background}

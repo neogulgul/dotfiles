@@ -1,30 +1,9 @@
 # Mod key
 set $mod Mod4
 
-# Font
-font pango:JetBrainsMono Nerd Font 10
-
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -35,9 +14,6 @@ bindsym $mod+Return exec --no-startup-id alacritty
 # kill focused window
 bindsym $mod+q kill
 
-# start dmenu
-# bindsym $mod+d exec --no-startup-id dmenu_run
-
 # start rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
@@ -47,7 +23,7 @@ bindsym $mod+k focus down
 bindsym $mod+i focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
+# alternatively, cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -59,7 +35,7 @@ bindsym $mod+Shift+k move down
 bindsym $mod+Shift+i move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
+# alternatively, cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -74,11 +50,6 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
@@ -88,8 +59,7 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
+# names for default workspaces
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -159,18 +129,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# bar {
-#         status_command i3status
-# }
+new_window pixel 0
 
-new_window pixel 5
-
-# class                 border      background  text        indicator   child-border
-client.focused          #caa9fa     #caa9fa     #caa9fa     #caa9fa     #caa9fa
-client.focused_inactive #282a36     #282a36     #282a36     #282a36     #282a36
-client.unfocused        #282a36     #282a36     #282a36     #282a36     #282a36
-
-gaps outer 0
 gaps inner 10
 
 # Picom
