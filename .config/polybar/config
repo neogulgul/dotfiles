@@ -5,7 +5,7 @@
 [colors]
 
 	transparent = #00000000
-	background 	= #282c34
+	background 	= #21252b
 	foreground 	= #ffffff
 	main 		= #2472c8
 	alert 		= #cd3131
@@ -68,7 +68,7 @@
 	label-urgent 				= ${self.label}
 	label-urgent-padding 		= ${modules.padding}
 	label-urgent-background 	= ${colors.background}
-	label-urgetn-underline		= ${colors.alert}
+	label-urgent-underline		= ${colors.alert}
 
 [module/time]
 
